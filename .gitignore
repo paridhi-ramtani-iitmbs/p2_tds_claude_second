@@ -1,1 +1,25 @@
+# Environment
+.env
+.env.local
 
+# Python
+__pycache__/
+*.py[cod]
+*.so
+venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Playwright
+.playwright/
