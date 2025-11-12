@@ -1,1 +1,36 @@
-
+services:
+  - type: web
+    name: quiz-solver-fast
+    env: python
+    region: oregon
+    plan: starter  # Recommended: $7/month prevents sleep
+    branch: main
+    buildCommand: "./build.sh"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port 10000"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: PORT
+        value: 10000
+      - key: BROWSER_TIMEOUT
+        value: 30000
+      - key: HEADLESS
+        value: True
+      - key: MAX_RETRIES
+        value: 2
+      - key: REQUEST_TIMEOUT
+        value: 20
+      - key: DATA_TIMEOUT
+        value: 30
+      - key: SOLVE_TIMEOUT
+        value: 45
+      - key: MAX_DATA_ROWS
+        value: 50000
+      - key: MAX_RESULT_ROWS
+        value: 100
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    healthCheckPath: /health
+    autoDeploy: true
