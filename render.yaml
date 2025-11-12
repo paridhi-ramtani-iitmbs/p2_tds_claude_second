@@ -3,7 +3,7 @@ services:
     name: quiz-solver-fast
     env: python
     region: oregon
-    plan: starter  # Recommended: $7/month prevents sleep
+    plan: free
     branch: main
     buildCommand: "./build.sh"
     startCommand: "uvicorn app.main:app --host 0.0.0.0 --port 10000"
