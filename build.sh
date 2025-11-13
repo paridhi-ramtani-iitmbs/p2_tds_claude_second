@@ -1,24 +1,23 @@
 #!/usr/bin/env bash
-# Fast build script for Render - FIXED for pandas issue
 set -o errexit
 
-echo "🚀 Building Quiz Solver (Port 10000)..."
+echo "🚀 Building with pre-built wheels only..."
 
-# Upgrade pip and setuptools
-echo "📦 Upgrading build tools..."
-pip install --upgrade pip setuptools wheel
+# Upgrade pip
+python -m pip install --upgrade pip
 
-# Install build dependencies first
-echo "🔧 Installing build dependencies..."
-pip install Cython
+# Install numpy and pandas with ONLY pre-built wheels (no compilation)
+echo "📊 Installing data libraries..."
+pip install --only-binary :all: numpy==1.24.4
+pip install --only-binary :all: pandas==2.0.3
 
-# Install dependencies with no cache (prevents pandas build issues)
+# Install other dependencies
 echo "📚 Installing dependencies..."
-pip install --no-cache-dir -r requirements.txt
+pip install -r requirements.txt
 
-# Install Playwright
-echo "🌐 Installing Playwright..."
+# Playwright
+echo "🌐 Installing browsers..."
 playwright install-deps chromium
 playwright install chromium
 
-echo "✅ Build complete! Starting on port 10000..."
+echo "✅ Build complete!"
