@@ -1,21 +1,21 @@
-# Core API
+
+# Core API - Latest stable versions
 fastapi==0.109.0
-uvicorn[standard]==0.27.0
+uvicorn==0.27.0
 pydantic==2.5.3
 pydantic-settings==2.1.0
 
-# Async HTTP
+# HTTP
 aiohttp==3.9.1
 
 # Browser
 playwright==1.41.0
 beautifulsoup4==4.12.3
-lxml==5.1.0
 
-# Data Processing - Fixed versions for Render compatibility
-pandas==2.0.3
-numpy==1.24.3
+# Data - Older stable versions (avoid build issues)
+pandas==1.5.3
+numpy==1.23.5
 openpyxl==3.1.2
 
-# Utilities
+# Utils
 python-dotenv==1.0.0
