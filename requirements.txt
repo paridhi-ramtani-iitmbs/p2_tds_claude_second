@@ -1,5 +1,7 @@
+# Ultra-simple - NO PANDAS (if all else fails)
+# Use this if pandas keeps failing
 
-# Core API - Latest stable versions
+# Core API
 fastapi==0.109.0
 uvicorn==0.27.0
 pydantic==2.5.3
@@ -12,10 +14,5 @@ aiohttp==3.9.1
 playwright==1.41.0
 beautifulsoup4==4.12.3
 
-# Data - Older stable versions (avoid build issues)
-pandas==1.5.3
-numpy==1.23.5
-openpyxl==3.1.2
-
-# Utils
+# Minimal data processing (no pandas)
 python-dotenv==1.0.0
